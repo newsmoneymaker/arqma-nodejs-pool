@@ -1,0 +1,17 @@
+[Unit]
+Description=ArQmA pool: public API (127.0.0.1:8134)
+After=arq-pool-redis.service arq-node.service arq-wallet-rpc.service
+Requires=arq-pool-redis.service
+[Service]
+Type=simple
+User=arqpool
+WorkingDirectory=/opt/arqma-nodejs-pool
+ExecStart=/usr/bin/node /opt/arqma-nodejs-pool/init.js -module=api
+Restart=always
+RestartSec=5
+TimeoutStopSec=30
+NoNewPrivileges=true
+PrivateTmp=true
+
+[Install]
+WantedBy=multi-user.target

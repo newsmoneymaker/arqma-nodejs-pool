@@ -1,11 +1,11 @@
 [Unit]
-Description=Redis for the C64 Chain pool (127.0.0.1:6381, AOF)
+Description=Redis for the ArQmA pool (127.0.0.1:6381, AOF)
 After=network.target
 
 [Service]
 Type=simple
-User=c64pool
-ExecStart=/usr/bin/redis-server /opt/c64-nodejs-pool/deployment/redis-pool.conf.example
+User=arqpool
+ExecStart=/usr/bin/redis-server /opt/arqma-nodejs-pool/deployment/redis-pool.conf.example
 Restart=always
 RestartSec=3
 LimitNOFILE=10032

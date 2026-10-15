@@ -1,0 +1,15 @@
+[Unit]
+Description=ArQmA pool wallet (wallet-rpc, 127.0.0.1:19997, no password: local use only)
+After=arq-node.service
+Requires=arq-node.service
+
+[Service]
+Type=simple
+User=arqpool
+ExecStart=/opt/arqma/bin/arqma-wallet-rpc --wallet-file /opt/arqma/wallet/pool --password-file /opt/arqma/wallet/password --rpc-bind-ip 127.0.0.1 --rpc-bind-port 19997 --disable-rpc-login --daemon-address 127.0.0.1:19994 --trusted-daemon --log-file /opt/arqma/wallet/wallet-rpc.log --max-log-file-size 0
+Restart=on-failure
+RestartSec=15
+TimeoutStopSec=60
+
+[Install]
+WantedBy=multi-user.target
